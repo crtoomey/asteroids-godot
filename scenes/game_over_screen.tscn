@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dvmq2mk6ixy20"]
+
+[node name="GameOverScreen" type="Node2D"]

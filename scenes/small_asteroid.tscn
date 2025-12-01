@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvhlmdo78pxv2"]
+
+[ext_resource type="Script" uid="uid://bo6etkrs1sl8" path="res://scenes/small_asteroid.gd" id="1_j6bfp"]
+
+[node name="SmallAsteroid" type="CharacterBody2D"]
+script = ExtResource("1_j6bfp")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-6, 0, -7, -4, -4, -8, 0, -11, 4, -5, 3, -2, 5, 3, 2, 6, -5, 4, -7, 2)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2.0054524, -5.891247)
+polygon = PackedVector2Array(-1.9945476, -2.1087532, 2.0054524, -5.108753, 6.005452, 0.8912468, 5.005452, 3.8912468, 7.005452, 8.891247, 4.005452, 11.891247, -2.9945476, 9.891247, -4.994548, 7.891247, -3.9945476, 5.891247, -4.994548, 1.8912468)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(5, 5)

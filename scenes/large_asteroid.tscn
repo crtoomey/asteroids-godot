@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr68oimkf7yd3"]
+
+[ext_resource type="Script" uid="uid://l4m3qjebg0ef" path="res://scripts/large_asteroid.gd" id="1_sswbg"]
+
+[node name="LargeAsteroid" type="CharacterBody2D"]
+script = ExtResource("1_sswbg")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-18, 0, -21, -10, -16, -23, 0, -27, 15, -19, 9, -5, 19, 5, 11, 14, -12, 12, -16, 6)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2.0054524, -5.891247)
+polygon = PackedVector2Array(-13.994548, -17.108753, 2.0054524, -21.108753, 17.005453, -13.108753, 11.005452, 0.8912468, 21.005453, 10.891247, 13.005452, 19.891247, -9.994548, 17.891247, -13.994548, 11.891247, -15.994548, 5.891247, -18.994547, -4.108753)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(5, 5)

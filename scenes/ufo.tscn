@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bnjgfsxv8l8pm"]
+
+[node name="UFO" type="CharacterBody2D"]
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, -8, 12, -8, 17, 0, 32, 9, 0, 9, -32, 9, -17, 0, -12, -8)
+closed = true
+width = 1.0
+
+[node name="Line2D" type="Line2D" parent="Line2D"]
+points = PackedVector2Array(-11, 9, -6, 17, 6, 17, 11, 9)
+closed = true
+width = 1.0
+
+[node name="Line2D3" type="Line2D" parent="Line2D"]
+position = Vector2(1, 1)
+rotation = 3.1415927
+points = PackedVector2Array(-9.999999, 9.000001, -4.9999986, 15.000001, 1.0000015, 17, 7.0000014, 14.999999, 12.000001, 8.999999)
+closed = true
+width = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(11, 9, 32, 9, 17, 0, 12, -8, 11, -8, 6, -14, 0, -16, -6, -14, -11, -8, -12, -8, -17, 0, -32, 9, -11, 9, -6, 17, 6, 17)

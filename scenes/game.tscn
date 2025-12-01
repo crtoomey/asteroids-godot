@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://cwyb7n4et0hhr"]
+[gd_scene load_steps=6 format=3 uid="uid://cwyb7n4et0hhr"]
+
+[ext_resource type="PackedScene" uid="uid://2c7ivlwkgvw2" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dbtsaevjcfkuc" path="res://scenes/medium_asteroid.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cr68oimkf7yd3" path="res://scenes/large_asteroid.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dvhlmdo78pxv2" path="res://scenes/small_asteroid.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://bnjgfsxv8l8pm" path="res://scenes/ufo.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(493, 299)
+
+[node name="SmallAsteroid" parent="." instance=ExtResource("4_iywne")]
+position = Vector2(474, 216)
+
+[node name="UFO" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(390, 270)
+
+[node name="MediumAsteroid" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(381, 207)
+
+[node name="LargeAsteroid" parent="." instance=ExtResource("3_lbhrr")]
+position = Vector2(590, 191)

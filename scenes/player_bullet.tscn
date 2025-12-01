@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://k1ki686m36jq"]
+
+[ext_resource type="Script" uid="uid://c0fgsla52h7sl" path="res://scripts/player_bullet.gd" id="1_4g3gs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwnph"]
+size = Vector2(4, 6)
+
+[node name="PlayerBullet" type="StaticBody2D"]
+script = ExtResource("1_4g3gs")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-2, 0, -2, -3, 2, -3, 2, 0, 2, 3, -2, 3)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dwnph")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -5)

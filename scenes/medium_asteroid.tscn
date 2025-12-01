@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbtsaevjcfkuc"]
+
+[ext_resource type="Script" uid="uid://hgj3g15qfm32" path="res://scripts/medium_asteroid.gd" id="1_k2g2w"]
+
+[node name="MediumAsteroid" type="CharacterBody2D"]
+script = ExtResource("1_k2g2w")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-10, 0, -8, -8, -9, -14, 0, -15, 9, -10, 5, -5, 12, 3, 4, 8, -6, 8, -9, 4)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2.0054524, -5.891247)
+polygon = PackedVector2Array(-6.994548, -8.108753, 2.0054524, -9.108753, 11.005452, -4.108753, 7.005452, 0.8912468, 14.005452, 8.891247, 6.005452, 13.891247, -3.9945476, 13.891247, -6.994548, 9.891247, -7.994548, 5.891247, -5.994548, -2.1087532)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(5, 5)
