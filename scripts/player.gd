@@ -9,6 +9,7 @@ var speed = 400
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var bulletObject = preload("res://scenes/player_bullet.tscn")
 @onready var game: Node2D = $".."
+@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 
 func _physics_process(delta: float) -> void:
@@ -38,3 +39,16 @@ func makeBullet():
 	newBullet.position = position
 	newBullet.rotation_degrees = player.rotation_degrees
 	return newBullet
+
+
+func hit():
+	print("Lost life")
+	collision_polygon_2d.disabled = true
+	line_2d.visible = false
+	await get_tree().create_timer(.1).timeout
+	line_2d.visible = true
+	await get_tree().create_timer(.1).timeout
+	line_2d.visible = false
+	await get_tree().create_timer(.1).timeout
+	line_2d.visible = true
+	collision_polygon_2d.disabled = false

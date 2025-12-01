@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://l4m3qjebg0ef" path="res://scripts/large_asteroid.gd" id="1_sswbg"]
 
 [node name="LargeAsteroid" type="CharacterBody2D"]
+collision_layer = 8
 script = ExtResource("1_sswbg")
 
 [node name="Line2D" type="Line2D" parent="."]

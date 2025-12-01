@@ -1,11 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://k1ki686m36jq"]
 
-[ext_resource type="Script" uid="uid://c0fgsla52h7sl" path="res://scripts/player_bullet.gd" id="1_4g3gs"]
+[ext_resource type="Script" uid="uid://dtwgtlpjgme2b" path="res://scripts/player_bullet.gd" id="1_4g3gs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwnph"]
 size = Vector2(4, 6)
 
-[node name="PlayerBullet" type="StaticBody2D"]
+[node name="PlayerBullet" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 14
 script = ExtResource("1_4g3gs")
 
 [node name="Line2D" type="Line2D" parent="."]

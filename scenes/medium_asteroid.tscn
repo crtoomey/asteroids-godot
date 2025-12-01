@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://hgj3g15qfm32" path="res://scripts/medium_asteroid.gd" id="1_k2g2w"]
 
 [node name="MediumAsteroid" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 4
 script = ExtResource("1_k2g2w")
 
 [node name="Line2D" type="Line2D" parent="."]

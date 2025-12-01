@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvhlmdo78pxv2"]
 
-[ext_resource type="Script" uid="uid://bo6etkrs1sl8" path="res://scenes/small_asteroid.gd" id="1_j6bfp"]
+[ext_resource type="Script" uid="uid://bo6etkrs1sl8" path="res://scripts/small_asteroid.gd" id="1_j6bfp"]
 
 [node name="SmallAsteroid" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_j6bfp")
 
 [node name="Line2D" type="Line2D" parent="."]

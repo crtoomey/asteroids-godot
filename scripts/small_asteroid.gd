@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
-
-var speed = 400
+var speed = 100
 
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
-@onready var player_bullet: CharacterBody2D = $"."
+@onready var small_asteroid: CharacterBody2D = $"."
+
+
+func _ready() -> void:
+	ray_cast_2d.target_position = Vector2(randf_range(-5,5), randf_range(-5,5))
 
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +22,8 @@ func _physics_process(delta: float) -> void:
 		#print("Collision")
 		if collision.get_collider().has_method("hit"):
 			collision.get_collider().hit()
-			player_bullet.queue_free()
-	
-	await get_tree().create_timer(2).timeout
-	player_bullet.queue_free()
+			hit()
+			small_asteroid.queue_free()
+
+func hit():
+	queue_free()
