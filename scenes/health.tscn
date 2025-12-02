@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://yclnqee8b3u7"]
+
+[node name="Health" type="Line2D"]
+z_index = 1
+position = Vector2(0, 5)
+points = PackedVector2Array(-6, 0, 0, -13, 6, 0)
+closed = true
+width = 1.0
+joint_mode = 2
+end_cap_mode = 2

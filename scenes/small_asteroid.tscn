@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvhlmdo78pxv2"]
+[gd_scene load_steps=3 format=3 uid="uid://dvhlmdo78pxv2"]
 
 [ext_resource type="Script" uid="uid://bo6etkrs1sl8" path="res://scripts/small_asteroid.gd" id="1_j6bfp"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j6bfp"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 185.57
+initial_velocity_max = 185.57
+gravity = Vector3(0, 0, 0)
 
 [node name="SmallAsteroid" type="CharacterBody2D"]
 collision_layer = 2
@@ -18,3 +28,14 @@ polygon = PackedVector2Array(-1.9945476, -2.1087532, 2.0054524, -5.108753, 6.005
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(5, 5)
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.65
+fixed_fps = 0
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_j6bfp")

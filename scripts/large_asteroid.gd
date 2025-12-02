@@ -35,8 +35,11 @@ func randomizeStartPosition():
 
 
 func hit():
+	Global.score += 20
+	Global.numOfAsteroids -= 1
 	var n = 3
 	for i in n:
+		Global.numOfAsteroids += 1
 		#print("New Med Asteroid")
 		var newMedAsteroid = mediumAsteroidObject.instantiate()
 		newMedAsteroid.position = large_asteroid.position

@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnjgfsxv8l8pm"]
+[gd_scene load_steps=3 format=3 uid="uid://bnjgfsxv8l8pm"]
 
 [ext_resource type="Script" uid="uid://rpmkwaod53x6" path="res://scripts/ufo.gd" id="1_rotgi"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rotgi"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 185.57
+initial_velocity_max = 185.57
+gravity = Vector3(0, 0, 0)
 
 [node name="UFO" type="CharacterBody2D"]
 collision_layer = 128
@@ -31,5 +41,16 @@ polygon = PackedVector2Array(11, 9, 32, 9, 17, 0, 12, -8, 11, -8, 6, -14, 0, -16
 
 [node name="BulletTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.65
+fixed_fps = 0
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_rotgi")
 
 [connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]

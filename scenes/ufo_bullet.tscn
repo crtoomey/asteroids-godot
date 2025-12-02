@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c1f7r4ltpxif3" path="res://scripts/ufo_bullet.gd" id="1_ciciq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwnph"]
-size = Vector2(4, 6)
+size = Vector2(4, 4)
 
 [node name="UFOBullet" type="CharacterBody2D"]
 rotation = 1.5707964
@@ -12,7 +12,7 @@ motion_mode = 1
 script = ExtResource("1_ciciq")
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(-2, 0, -2, -3, 2, -3, 2, 0, 2, 3, -2, 3)
+points = PackedVector2Array(-2, 0, -2, -1.9999999, 1.9999999, -2, 2, 0, 2, 1.9999999, -1.9999999, 2)
 closed = true
 width = 1.0
 joint_mode = 2

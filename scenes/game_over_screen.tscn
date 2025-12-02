@@ -1,3 +1,117 @@
-[gd_scene format=3 uid="uid://dvmq2mk6ixy20"]
+[gd_scene load_steps=3 format=3 uid="uid://dvmq2mk6ixy20"]
+
+[ext_resource type="Script" uid="uid://c3xp8omjdsacq" path="res://scripts/game_over_screen.gd" id="1_61w2s"]
+[ext_resource type="Texture2D" uid="uid://cm08tubi2u5wh" path="res://assets/960x540 black background.png" id="1_iwahs"]
 
 [node name="GameOverScreen" type="Node2D"]
+script = ExtResource("1_61w2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iwahs")
+centered = false
+
+[node name="Label" type="Label" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -120.5
+offset_right = 87.0
+offset_bottom = -75.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Game Over"
+
+[node name="ScoreLabel" type="Label" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 116.5
+offset_top = -22.5
+offset_right = 171.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YourScoreLabel" type="Label" parent="Sprite2D"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -22.5
+offset_right = 374.0
+offset_bottom = 22.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Your Score:"
+
+[node name="HighscoreLabel" type="Label" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 116.5
+offset_top = 41.5
+offset_right = 171.5
+offset_bottom = 86.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YourHighscoreLabel" type="Label" parent="Sprite2D"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = 41.5
+offset_right = 375.0
+offset_bottom = 86.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Your Highscore:"
+
+[node name="RestartButton" type="Button" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 120.5
+offset_right = 48.0
+offset_bottom = 151.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart
+"
+
+[node name="MainMenuButton" type="Button" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 176.5
+offset_right = 48.0
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu
+"
+
+[connection signal="pressed" from="Sprite2D/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Sprite2D/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

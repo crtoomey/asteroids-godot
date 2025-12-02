@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwyb7n4et0hhr"]
+[gd_scene load_steps=6 format=3 uid="uid://cwyb7n4et0hhr"]
 
 [ext_resource type="Script" uid="uid://c7u0uagkkeqik" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://2c7ivlwkgvw2" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://cm08tubi2u5wh" path="res://assets/960x540 black background.png" id="3_lnu2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iywne"]
 size = Vector2(960, 69.5)
@@ -51,6 +52,31 @@ position = Vector2(-34, 270)
 shape = SubResource("RectangleShape2D_p57ef")
 
 [node name="UFOTimer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("3_lnu2h")
+centered = false
+
+[node name="HealthUI" type="Node2D" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 910.0
+offset_top = 10.0
+offset_right = 950.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TravelLine" type="Line2D" parent="."]
 
 [connection signal="body_entered" from="Wraps/Top" to="." method="_on_top_body_entered"]
 [connection signal="body_entered" from="Wraps/Bottom" to="." method="_on_bottom_body_entered"]

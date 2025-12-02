@@ -30,8 +30,11 @@ func _physics_process(delta: float) -> void:
 			medium_asteroid.queue_free()
 	
 func hit():
+	Global.score += 50
+	Global.numOfAsteroids -= 1
 	var n = 2
 	for i in n:
+		Global.numOfAsteroids += 1
 		#print("New Small Asteroid")
 		var newSmAsteroid = smallAsteroidObject.instantiate()
 		#print(newSmAsteroid)
