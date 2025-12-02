@@ -8,5 +8,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		shotgun.visible = false
 		shotgun_sound.play()
 		Global.hasShotgun = true
-		await get_tree().create_timer(.5).timeout
+		await get_tree().create_timer(.7).timeout
 		queue_free()
