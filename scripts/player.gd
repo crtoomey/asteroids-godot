@@ -24,9 +24,9 @@ func _physics_process(delta: float) -> void:
 		position = position.move_toward(target, speed * delta)
 		
 	if Input.is_action_pressed("move_left"):
-		player.rotation_degrees -= 2
+		player.rotation_degrees -= 5
 	if Input.is_action_pressed("move_right"):
-		player.rotation_degrees += 2
+		player.rotation_degrees += 5
 	
 	if Input.is_action_just_pressed("fire"):
 		makeBullet()
@@ -42,7 +42,7 @@ func makeBullet():
 
 
 func hit():
-	print("Lost life")
+	#print("Lost life")
 	collision_polygon_2d.disabled = true
 	line_2d.visible = false
 	await get_tree().create_timer(.1).timeout

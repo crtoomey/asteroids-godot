@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwyb7n4et0hhr"]
+[gd_scene load_steps=5 format=3 uid="uid://cwyb7n4et0hhr"]
 
 [ext_resource type="Script" uid="uid://c7u0uagkkeqik" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://2c7ivlwkgvw2" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://bnjgfsxv8l8pm" path="res://scenes/ufo.tscn" id="5_iywne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iywne"]
 size = Vector2(960, 69.5)
@@ -16,43 +15,45 @@ script = ExtResource("1_p57ef")
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(493, 299)
 
-[node name="UFO" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(390, 270)
+[node name="Wraps" type="Node2D" parent="."]
 
-[node name="Top" type="Area2D" parent="."]
+[node name="Top" type="Area2D" parent="Wraps"]
 collision_layer = 32
 collision_mask = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wraps/Top"]
 position = Vector2(480, -34.5)
 shape = SubResource("RectangleShape2D_iywne")
 
-[node name="Bottom" type="Area2D" parent="."]
+[node name="Bottom" type="Area2D" parent="Wraps"]
 collision_layer = 32
 collision_mask = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wraps/Bottom"]
 position = Vector2(480, 574.75)
 shape = SubResource("RectangleShape2D_iywne")
 
-[node name="Left" type="Area2D" parent="."]
+[node name="Left" type="Area2D" parent="Wraps"]
 collision_layer = 32
 collision_mask = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wraps/Left"]
 position = Vector2(-34, 270)
 shape = SubResource("RectangleShape2D_p57ef")
 
-[node name="Right" type="Area2D" parent="."]
+[node name="Right" type="Area2D" parent="Wraps"]
 position = Vector2(1028, 0)
 collision_layer = 32
 collision_mask = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wraps/Right"]
 position = Vector2(-34, 270)
 shape = SubResource("RectangleShape2D_p57ef")
 
-[connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
-[connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]
-[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
-[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
+[node name="UFOTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Wraps/Top" to="." method="_on_top_body_entered"]
+[connection signal="body_entered" from="Wraps/Bottom" to="." method="_on_bottom_body_entered"]
+[connection signal="body_entered" from="Wraps/Left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Wraps/Right" to="." method="_on_right_body_entered"]
+[connection signal="timeout" from="UFOTimer" to="." method="_on_ufo_timer_timeout"]

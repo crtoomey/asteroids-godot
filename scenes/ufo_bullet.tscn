@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://k1ki686m36jq"]
+[gd_scene load_steps=3 format=3 uid="uid://xwqhmlolp4qn"]
 
-[ext_resource type="Script" uid="uid://dtwgtlpjgme2b" path="res://scripts/player_bullet.gd" id="1_4g3gs"]
+[ext_resource type="Script" uid="uid://c1f7r4ltpxif3" path="res://scripts/ufo_bullet.gd" id="1_ciciq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwnph"]
 size = Vector2(4, 6)
 
-[node name="PlayerBullet" type="CharacterBody2D"]
-collision_layer = 16
-collision_mask = 142
+[node name="UFOBullet" type="CharacterBody2D"]
+rotation = 1.5707964
+collision_layer = 64
 motion_mode = 1
-script = ExtResource("1_4g3gs")
+script = ExtResource("1_ciciq")
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(-2, 0, -2, -3, 2, -3, 2, 0, 2, 3, -2, 3)
