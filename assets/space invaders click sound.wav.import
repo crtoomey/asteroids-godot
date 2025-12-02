@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2bmfug3roevv"
+path="res://.godot/imported/space invaders click sound.wav-7292f2b4f37de326ca6f9c6009bbe89c.sample"
+
+[deps]
+
+source_file="res://assets/space invaders click sound.wav"
+dest_files=["res://.godot/imported/space invaders click sound.wav-7292f2b4f37de326ca6f9c6009bbe89c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

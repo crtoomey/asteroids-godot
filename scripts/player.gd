@@ -12,6 +12,10 @@ var speed = 400
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 @onready var health_ui: Node2D = $"../HealthUI"
 @onready var travel_line: Line2D = $"../TravelLine"
+@onready var fire: AudioStreamPlayer2D = $Fire
+@onready var warp_sound: AudioStreamPlayer2D = $WarpSound
+@onready var explosion_sound: AudioStreamPlayer2D = $ExplosionSound
+
 
 func _ready() -> void:
 	# turn off collision for 1 sec after loading in to avoid losing life immediately
@@ -39,10 +43,12 @@ func _physics_process(delta: float) -> void:
 	
 	# shooting
 	if Input.is_action_just_pressed("fire"):
+		fire.play()
 		makeBullet()
 	
 	# turn off collision after warping to random location and slow down time
 	if Input.is_action_just_pressed("warp"):
+		warp_sound.play()
 		var randX = randf_range(0, 960)
 		var randY = randf_range(0, 540)
 		var prevPos = player.position
@@ -111,6 +117,7 @@ func makeBullet():
 
 
 func hit():
+	explosion_sound.play()
 	Global.life -= 1
 	#print("Lost life")
 	collision_polygon_2d.disabled = true

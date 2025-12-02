@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr68oimkf7yd3"]
+[gd_scene load_steps=3 format=3 uid="uid://cr68oimkf7yd3"]
 
 [ext_resource type="Script" uid="uid://l4m3qjebg0ef" path="res://scripts/large_asteroid.gd" id="1_sswbg"]
+[ext_resource type="AudioStream" uid="uid://c0xfkp2xm4n1e" path="res://assets/space invaders explosion.wav" id="2_47y5e"]
 
 [node name="LargeAsteroid" type="CharacterBody2D"]
 collision_layer = 8
@@ -18,3 +19,6 @@ polygon = PackedVector2Array(-13.994548, -17.108753, 2.0054524, -21.108753, 17.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(5, 5)
+
+[node name="BlowUpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_47y5e")

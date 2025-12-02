@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hk5srpr8gdr5"
+path="res://.godot/imported/asteroids shield sound.wav-e8ccd0941ead3b52f0e051227b5a0970.sample"
+
+[deps]
+
+source_file="res://assets/asteroids shield sound.wav"
+dest_files=["res://.godot/imported/asteroids shield sound.wav-e8ccd0941ead3b52f0e051227b5a0970.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnjgfsxv8l8pm"]
+[gd_scene load_steps=5 format=3 uid="uid://bnjgfsxv8l8pm"]
 
 [ext_resource type="Script" uid="uid://rpmkwaod53x6" path="res://scripts/ufo.gd" id="1_rotgi"]
+[ext_resource type="AudioStream" uid="uid://daoy8ttwh5g7f" path="res://assets/asteroids ufo shooting.wav" id="2_xf4xf"]
+[ext_resource type="AudioStream" uid="uid://c0xfkp2xm4n1e" path="res://assets/space invaders explosion.wav" id="3_gp6nc"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rotgi"]
 particle_flag_disable_z = true
@@ -52,5 +54,11 @@ randomness = 0.65
 fixed_fps = 0
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_rotgi")
+
+[node name="ShootingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xf4xf")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gp6nc")
 
 [connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]

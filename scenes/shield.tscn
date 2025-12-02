@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3m2xv655cncj"]
+[gd_scene load_steps=4 format=3 uid="uid://d3m2xv655cncj"]
 
 [ext_resource type="Script" uid="uid://lmretxduip2n" path="res://scripts/shield.gd" id="1_vtru8"]
+[ext_resource type="AudioStream" uid="uid://hk5srpr8gdr5" path="res://assets/asteroids shield sound.wav" id="2_ohv3a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ygrb2"]
 
@@ -20,5 +21,8 @@ joint_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ygrb2")
+
+[node name="ShieldSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ohv3a")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

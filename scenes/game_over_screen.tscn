@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvmq2mk6ixy20"]
+[gd_scene load_steps=4 format=3 uid="uid://dvmq2mk6ixy20"]
 
 [ext_resource type="Script" uid="uid://c3xp8omjdsacq" path="res://scripts/game_over_screen.gd" id="1_61w2s"]
 [ext_resource type="Texture2D" uid="uid://cm08tubi2u5wh" path="res://assets/960x540 black background.png" id="1_iwahs"]
+[ext_resource type="AudioStream" uid="uid://2bmfug3roevv" path="res://assets/space invaders click sound.wav" id="3_jw6e5"]
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource("1_61w2s")
@@ -112,6 +113,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Main Menu
 "
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="Sprite2D"]
+stream = ExtResource("3_jw6e5")
 
 [connection signal="pressed" from="Sprite2D/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Sprite2D/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

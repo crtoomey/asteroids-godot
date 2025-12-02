@@ -17,6 +17,8 @@ var bottomLeftSpawn = false
 @onready var line_2d: Line2D = $Line2D
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 @onready var ufo: CharacterBody2D = $"."
+@onready var shooting_sound: AudioStreamPlayer2D = $ShootingSound
+@onready var explosion_sound: AudioStreamPlayer2D = $ExplosionSound
 
 func _ready() -> void:
 	#print("UFO Spawned")
@@ -68,6 +70,7 @@ func _physics_process(delta: float) -> void:
 	queue_free()
 
 func hit():
+	explosion_sound.play()
 	var randNum = randi_range(1,10)
 	if randNum <= 3:
 		print("Shotgun dropped")
@@ -90,6 +93,7 @@ func hit():
 
 func makeBullet():
 	#print("Shoot")
+	shooting_sound.play()
 	var newBullet = ufoBulletObject.instantiate()
 	game.add_child(newBullet)
 	newBullet.position = position

@@ -7,6 +7,8 @@ var speed = 100
 @onready var mediumAsteroidObject = preload("res://scenes/medium_asteroid.tscn")
 @onready var game: Node2D = $".."
 @onready var large_asteroid: CharacterBody2D = $"."
+@onready var blow_up_sound: AudioStreamPlayer2D = $BlowUpSound
+@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 func _ready() -> void:
 	#await get_tree().create_timer(2).timeout
@@ -35,6 +37,10 @@ func randomizeStartPosition():
 
 
 func hit():
+	large_asteroid.visible = false
+	collision_polygon_2d.disabled = true
+	blow_up_sound.play()
+	
 	Global.score += 20
 	Global.numOfAsteroids -= 1
 	var n = 3
@@ -46,6 +52,6 @@ func hit():
 		
 		game.add_child(newMedAsteroid)
 		
-		
+	await get_tree().create_timer(.2).timeout
 	queue_free()
 	

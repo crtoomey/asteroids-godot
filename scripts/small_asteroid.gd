@@ -6,6 +6,7 @@ var speed = 100
 @onready var small_asteroid: CharacterBody2D = $"."
 @onready var explosion_particles: GPUParticles2D = $ExplosionParticles
 @onready var line_2d: Line2D = $Line2D
+@onready var blow_up_sound: AudioStreamPlayer2D = $BlowUpSound
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 
@@ -29,6 +30,7 @@ func _physics_process(delta: float) -> void:
 			small_asteroid.queue_free()
 
 func hit():
+	collision_polygon_2d.disabled = true
 	var randNum = randi_range(1,10)
 	if randNum <= 2 and Global.life < 3:
 		Global.life += 1
@@ -36,6 +38,7 @@ func hit():
 		print("Life Gained")
 	else:
 		explosion_particles.process_material.color = Color.WHITE
+	blow_up_sound.play()
 	Global.numOfAsteroids -= 1
 	explosion_particles.emitting = true
 	line_2d.visible = false

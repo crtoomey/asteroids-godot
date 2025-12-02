@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbtsaevjcfkuc"]
+[gd_scene load_steps=3 format=3 uid="uid://dbtsaevjcfkuc"]
 
 [ext_resource type="Script" uid="uid://hgj3g15qfm32" path="res://scripts/medium_asteroid.gd" id="1_k2g2w"]
+[ext_resource type="AudioStream" uid="uid://c0xfkp2xm4n1e" path="res://assets/space invaders explosion.wav" id="2_p71un"]
 
 [node name="MediumAsteroid" type="CharacterBody2D"]
 z_index = 1
@@ -19,3 +20,6 @@ polygon = PackedVector2Array(-6.994548, -8.108753, 2.0054524, -9.108753, 11.0054
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(5, 5)
+
+[node name="BlowUpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_p71un")

@@ -7,6 +7,8 @@ var speed = 100
 @onready var game: Node2D = $".."
 @onready var medium_asteroid: CharacterBody2D = $"."
 @onready var smallAsteroidObject = preload("res://scenes/small_asteroid.tscn")
+@onready var blow_up_sound: AudioStreamPlayer2D = $BlowUpSound
+@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 
 
@@ -30,6 +32,9 @@ func _physics_process(delta: float) -> void:
 			medium_asteroid.queue_free()
 	
 func hit():
+	collision_polygon_2d.disabled = true
+	medium_asteroid.visible = false
+	blow_up_sound.play()
 	Global.score += 50
 	Global.numOfAsteroids -= 1
 	var n = 2
@@ -40,5 +45,5 @@ func hit():
 		#print(newSmAsteroid)
 		newSmAsteroid.position = medium_asteroid.position
 		game.add_child(newSmAsteroid)
-		
+	await get_tree().create_timer(.2).timeout
 	queue_free()
